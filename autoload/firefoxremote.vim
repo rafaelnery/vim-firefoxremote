@@ -20,6 +20,8 @@ function! firefoxremote#AbrirArquivo()
 
   if g:FirefoxRemoteContext != '' 
     let l:sComando.="var oContext  = content.window." . g:FirefoxRemoteContext . " || content.window;"
+  else 
+    let l:sComando.="var oContext  = content.window;"
   endif
 
   let l:sComando.=" oContext.location.pathname;"
@@ -42,6 +44,8 @@ function! firefoxremote#AtualizarFirefox()
 
   if g:FirefoxRemoteContext != '' 
     let l:sComando.="var oContext  = content.window." . g:FirefoxRemoteContext . " || content.window;"
+  else 
+    let l:sComando.="var oContext  = content.window;"
   endif
   let l:sComando.="var iBrowserX = oContext.pageXOffset;"
   let l:sComando.="var iBrowserY = oContext.pageYOffset;"
@@ -59,7 +63,9 @@ function! firefoxremote#Redirecionar( sUrl )
 
   let l:sEnvio = ";"
   if g:FirefoxRemoteContext != '' 
-    let l:sEnvio.="var oContext  = content.window." . g:FirefoxRemoteContext . " || content.window;"
+    let l:sComando.="var oContext  = content.window." . g:FirefoxRemoteContext . " || content.window;"
+  else 
+    let l:sComando.="var oContext  = content.window;"
   endif
   let l:sEnvio.= "repl.home();"
   let l:sEnvio.= "oContext.location.href = '" . a:sUrl . "';"
