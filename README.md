@@ -11,6 +11,7 @@ Plugin para Manipulação do Firefox pelo VIM
   - Extrair o Conteudo  $HOME/.vim
 * Configuração
   - Caso a porta do MozRepl seja diferente de 4242, defina no ~/.vimrc:
-<pre>
-:let g:FirefoxRemotePort=<b>NumeroDaPorta</b>
-</pre>
+  
+```viml
+:let g:FirefoxRemotePort=NumeroDaPorta
+```
